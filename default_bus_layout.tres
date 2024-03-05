@@ -1,0 +1,15 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://drv38uq66rata"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_t7d73"]
+resource_name = "Limiter"
+ceiling_db = -9.6
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_ervwa"]
+resource_name = "Compressor"
+threshold = -32.0
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_t7d73")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectCompressor_ervwa")
+bus/0/effect/1/enabled = true

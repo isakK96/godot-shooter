@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cl0r3cwtmqv67"]
+
+[ext_resource type="Texture2D" uid="uid://bvnxwt6l8oi5v" path="res://Assets/Art/pistol.png" id="1_fofjr"]
+[ext_resource type="Script" path="res://Scenes/weapons/pistol.gd" id="2_n240w"]
+[ext_resource type="AudioStream" uid="uid://xo2wvxohhap1" path="res://Assets/SFX/sfx_weapon_singleshot13.wav" id="3_llwvo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gy0s"]
+radius = 416.0
+
+[node name="Pistol" type="Sprite2D"]
+position = Vector2(96, 16)
+texture = ExtResource("1_fofjr")
+script = ExtResource("2_n240w")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(25, -8)
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_1gy0s")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_llwvo")
+volume_db = -49.898
+pitch_scale = 0.39

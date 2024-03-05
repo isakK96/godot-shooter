@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b81nv76dnt4yo"]
+
+[ext_resource type="Script" path="res://Scenes/enemy_spawn_manager.gd" id="1_xcwrr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jk8r"]
+size = Vector2(1171, 673)
+
+[node name="EnemySpawnManager" type="Node2D"]
+script = ExtResource("1_xcwrr")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(575.5, 326.5)
+shape = SubResource("RectangleShape2D_0jk8r")
+
+[node name="Timer" type="Timer" parent="."]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnccg2g28b74d"]
+
+[ext_resource type="Texture2D" uid="uid://vw3htla6jubw" path="res://Assets/Art/bullet1.png" id="1_6i6d6"]
+[ext_resource type="Script" path="res://Scenes/splitting_projectile.gd" id="1_iqqi7"]
+[ext_resource type="PackedScene" uid="uid://eq1q2j0gqyxc" path="res://Scenes/bullet_impact.tscn" id="2_1hwhl"]
+[ext_resource type="Script" path="res://Nodes/hitbox.gd" id="3_px58t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lrp4j"]
+
+[node name="SplittingProjectile" type="Node2D"]
+script = ExtResource("1_iqqi7")
+impact_particle = ExtResource("2_1hwhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6i6d6")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("3_px58t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_lrp4j")
+
+[node name="Timer" type="Timer" parent="."]
